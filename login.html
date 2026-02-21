@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricted Access</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dragon-container">
+        <svg id="dragon-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+            <g id="dragon-screen"></g>
+        </svg>
+    </div>
+
+    <div class="login-container fade-in-up">
+        <h2 style="margin-bottom: 2rem;">Authenticating...</h2>
+        <form id="login-form">
+            <!-- Email is handled in backend script -->
+            <input type="password" id="password" class="minimal-input" placeholder="Enter Password" autofocus
+                autocomplete="off">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Enter</button>
+        </form>
+        <!-- Retaining error-msg logic if we want to hook it up later, but mainly relying on script.js alerts for now -->
+        <p id="error-msg" style="color: var(--primary-color); margin-top: 1rem; opacity: 0; transition: opacity 0.3s;">
+            Access Denied</p>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (window.login) {
+                await window.login();
+            } else {
+                alert("Authentication module not loaded yet. Please wait a moment.");
+            }
+        });
+    </script>
+</body>
+
+</html>
