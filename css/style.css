@@ -814,134 +814,87 @@ footer {
 
 /* --- New Pages & Admin Styles --- */
 
-/* Blog List */
-.blog-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    max-width: 800px;
-}
 
-.blog-card {
-    background: rgba(240, 244, 255, 0.6);
-    backdrop-filter: blur(5px);
-    padding: var(--spacing-md);
-    border: 1px solid var(--border-color);
-    border-left: 3px solid var(--primary-color);
-    transition: transform var(--transition-fast);
-}
+/* --- Adjusted Blog & Gallery Styles for New Layouts --- */
 
-.blog-card:hover {
-    transform: translateX(10px);
-    background: rgba(240, 244, 255, 0.8);
-}
-
-.blog-card .date {
-    display: block;
-    font-size: 0.85rem;
-    color: var(--intro-text);
-    margin-bottom: 0.5rem;
-    opacity: 0.7;
-}
-
-.blog-card h3 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-/* Gallery Masonry */
-.gallery-grid {
-    column-count: 3;
-    column-gap: var(--spacing-md);
-}
-
-.gallery-item {
-    break-inside: avoid;
-    margin-bottom: var(--spacing-md);
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative;
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
-    z-index: 10;
-    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-    .gallery-grid {
-        column-count: 1;
-    }
-}
-
-/* Hidden Login Trigger */
-.hidden-login {
-    color: inherit;
-    text-decoration: none;
-    cursor: default;
-    /* Looks unclickable */
-}
-
-/* Admin/Login Pages */
-.login-container,
-.dashboard-container {
-    max-width: 500px;
-    margin: 100px auto;
-    padding: var(--spacing-md);
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid var(--border-color);
-    text-align: center;
-}
-
-.dashboard-container {
-    max-width: 800px;
-    text-align: left;
-}
-
-.minimal-input,
-.minimal-textarea {
+.blog-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    font-family: var(--font-body);
 }
 
-.minimal-input:focus,
-.minimal-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.dashboard-tabs {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.tab-btn {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    color: var(--intro-text);
-    cursor: pointer;
-    font-weight: bold;
-    opacity: 0.6;
-}
-
-.tab-btn.active {
+.animate-on-scroll.visible {
     opacity: 1;
-    border-bottom: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    transform: translateY(0);
 }
 
+/* Premium Transitions */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Theme Refinement */
+body.dark-theme {
+    --bg-color: #050505;
+    --text-primary: #f0f0f0;
+    --text-secondary: #007bff;
+    --border-color: #222;
+    --light-gray: #111;
+}
+
+body.dark-theme .blog-card, 
+body.dark-theme .project-card {
+    background: rgba(20, 20, 20, 0.8);
+    border-color: #333;
+}
+
+body.dark-theme .blog-header,
+body.dark-theme .gallery-header {
+    background: linear-gradient(135deg, #001220 0%, #050505 100%);
+}
+
+body.dark-theme .gallery-item {
+    background: #111;
+}
+
+/* Image Loading State */
+img {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Navigation Hover Premium */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Tab Content Visibility */
 .tab-content {
     display: none;
 }
