@@ -6,14 +6,14 @@
 window.login = async function() {
     const passwordInput = document.getElementById('password');
     const errorMsg = document.getElementById('error-msg');
-    const password = passwordInput.value;
+    const password = passwordInput.value.trim();
 
     // Simple password check for the portfolio admin
     // Note: In a real app, this would be a backend request.
     const CORRECT_PASSWORD = 'tylerisreal'; 
 
     if (password === CORRECT_PASSWORD) {
-        sessionStorage.setItem('isAdmin', 'true');
+        localStorage.setItem('isAdmin', 'true');
         // Smooth transition before redirect
         document.querySelector('.login-container').style.opacity = '0';
         setTimeout(() => {

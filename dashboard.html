@@ -91,13 +91,13 @@
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Check Auth
-        if (sessionStorage.getItem('isAdmin') !== 'true') {
+        // Check Auth using localStorage for better persistence
+        if (localStorage.getItem('isAdmin') !== 'true') {
             window.location.href = 'login.html';
         }
 
         function logout() {
-            sessionStorage.removeItem('isAdmin');
+            localStorage.removeItem('isAdmin');
             window.location.href = 'index.html';
         }
 
