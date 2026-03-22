@@ -10,7 +10,7 @@ window.login = async function() {
 
     // Simple password check for the portfolio admin
     // Note: In a real app, this would be a backend request.
-    const CORRECT_PASSWORD = 'admin'; 
+    const CORRECT_PASSWORD = 'tylerisreal'; 
 
     if (password === CORRECT_PASSWORD) {
         sessionStorage.setItem('isAdmin', 'true');
