@@ -727,9 +727,19 @@ footer {
 
 /* Pop Up Animation */
 .pop-up-anim {
-    opacity: 1;
-    animation: popUpInterval 10s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-    /* Duration 10s: ~6s visible, ~0.5s collapse, ~2.5s collapsed, ~1s return */
+    opacity: 0;
+    animation: popUp 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popUp {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 @keyframes popUpInterval {
@@ -865,12 +875,12 @@ body.dark-theme .gallery-item {
 }
 
 /* Image Loading State */
-img {
+img[loading="lazy"] {
     opacity: 0;
     transition: opacity 0.8s ease;
 }
 
-img.loaded {
+img.loaded, img:not([loading="lazy"]) {
     opacity: 1;
 }
 
