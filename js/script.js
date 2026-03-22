@@ -12,11 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
     const menuToggle = document.createElement('div');
     const scrollToTopBtn = document.createElement('button');
-    const themeToggleBtn = document.createElement('button');
-
     // --- Initialization ---
     initMobileMenu();
-    initThemeToggle();
     initScrollToTop();
     initStickyNavbar();
     initFormValidation();
@@ -49,33 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Dark/Light Mode Toggle ---
-    function initThemeToggle() {
-        themeToggleBtn.className = 'theme-toggle';
-        themeToggleBtn.setAttribute('aria-label', 'Toggle Dark Mode');
-        themeToggleBtn.innerHTML = '&#127769;'; // Moon icon
-        
-        // Add to navbar
-        navbar.querySelector('.container').insertBefore(themeToggleBtn, menuToggle);
-
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-theme');
-            themeToggleBtn.innerHTML = '&#9728;'; // Sun icon
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            let theme = 'light';
-            if (body.classList.contains('dark-theme')) {
-                theme = 'dark';
-                themeToggleBtn.innerHTML = '&#9728;';
-            } else {
-                themeToggleBtn.innerHTML = '&#127769;';
-            }
-            localStorage.setItem('theme', theme);
-        });
-    }
+    // --- themeToggleBtn removed ---
 
     // --- Scroll to Top ---
     function initScrollToTop() {

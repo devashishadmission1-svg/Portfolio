@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
     initLazyLoading();
     initTypingAnimation();
-    initThemeToggle();
 
     // --- Scroll Animations (Intersection Observer) ---
     function initScrollAnimations() {
@@ -81,14 +80,4 @@ document.addEventListener('DOMContentLoaded', () => {
         type1();
     }
 
-    // --- Theme Toggle ---
-    function initThemeToggle() {
-        // Simple theme toggle logic if a toggle button exists
-        const toggleBtn = document.querySelector('.theme-toggle');
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-            });
-        }
-    }
 });
