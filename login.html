@@ -4,38 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restricted Access</title>
+    <title>Restricted Access | Devashish Pathak</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-    </style>
 </head>
 
-<body>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden;">
 
-    <div class="dragon-container">
-        <svg id="dragon-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-            <g id="dragon-screen"></g>
-        </svg>
+    <!-- Animated Mesh Background -->
+    <div class="mesh-bg">
+        <div class="mesh-circle circle-1"></div>
+        <div class="mesh-circle circle-2"></div>
+        <div class="mesh-circle circle-3"></div>
     </div>
 
-    <div class="login-container fade-in-up">
+    <div class="project-card fade-in-up" style="width: 100%; max-width: 400px; text-align: center;">
         <h2 style="margin-bottom: 2rem;">Authenticating...</h2>
         <form id="login-form">
-            <!-- Email is handled in backend script -->
-            <input type="password" id="password" class="minimal-input" placeholder="Enter Password" autofocus
-                autocomplete="off">
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Enter</button>
+            <input type="password" id="password" class="minimal-input" placeholder="Secure Access Token" autofocus
+                autocomplete="off" style="margin-bottom: 2rem; text-align: center;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Enter Terminal</button>
         </form>
-        <!-- Retaining error-msg logic if we want to hook it up later, but mainly relying on script.js alerts for now -->
-        <p id="error-msg" style="color: var(--primary-color); margin-top: 1rem; opacity: 0; transition: opacity 0.3s;">
-            Access Denied</p>
+        <p id="error-msg" style="color: var(--primary); margin-top: 1.5rem; opacity: 0; transition: opacity 0.3s; font-weight: 700;">
+            Access Denied. Signature mismatch.</p>
     </div>
 
     <script src="js/script.js"></script>
@@ -47,7 +37,7 @@
             if (window.login) {
                 await window.login();
             } else {
-                alert("Authentication module not loaded yet. Please wait a moment.");
+                alert("Authentication module not loaded yet.");
             }
         });
     </script>

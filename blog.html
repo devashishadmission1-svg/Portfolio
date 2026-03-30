@@ -4,104 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blogs | Devashish Pathak</title>
+    <title>Digital Garden | Devashish Pathak</title>
     <meta name="description" content="Exploring the intersection of Artificial Intelligence, Psychology, and Technology.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        .blog-header {
-            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
-            padding: 8rem 0 4rem;
-            text-align: center;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .blog-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 123, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.1);
-            border-color: var(--primary-color);
-        }
-
-        .blog-card .date {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .blog-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .blog-card p {
-            font-size: 1rem;
-            color: #4a4a4a;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .read-more {
-            font-weight: 600;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .read-more:hover {
-            gap: 0.8rem;
-        }
-
-        .news-section {
-            margin-top: 6rem;
-            padding-top: 4rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .news-item {
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            border-left: 4px solid var(--primary-color);
-        }
-    </style>
 </head>
 
 <body>
 
+    <!-- Animated Mesh Background -->
+    <div class="mesh-bg">
+        <div class="mesh-circle circle-1"></div>
+        <div class="mesh-circle circle-2"></div>
+        <div class="mesh-circle circle-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar fade-in">
+    <nav class="navbar scrolled">
         <div class="container">
-            <a href="index.html" class="logo">DevPathak.</a>
+            <a href="index.html" class="logo">DEVASHISH.</a>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Work</a></li>
@@ -111,58 +31,54 @@
         </div>
     </nav>
 
-    <header class="blog-header">
-        <div class="container">
-            <h1 class="hero-title fade-in-up">Digital Garden</h1>
-            <p class="hero-subtitle fade-in-up delay-1">Thoughts on AI, Psychology, and the Future of Systems.</p>
+    <header class="section" style="padding-bottom: 2rem; text-align: center;">
+        <div class="container fade-in-up">
+            <h1 class="hero-title">Digital Garden</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Thoughts on AI, Psychology, and the Future of Systems.</p>
         </div>
     </header>
 
-    <main class="section">
+    <main class="section" style="padding-top: 2rem;">
         <div class="container">
-            <div id="blog-list" class="blog-grid animate-on-scroll">
-                <!-- Static Featured Posts -->
-                <article class="blog-card">
-                    <div>
-                        <span class="date">Mar 21, 2026</span>
-                        <h3>The Convergence of AI and Human Cognition</h3>
-                        <p>How modern large language models are mirroring human psychological patterns, and what this tells us about the future of cognitive science.</p>
-                    </div>
-                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+            <div id="blog-list" class="projects-grid animate-on-scroll">
+                <!-- Blog Post 1 -->
+                <article class="project-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">Mar 21, 2026</span>
+                    <h3 style="margin-top: 0.5rem;">Convergence of AI & Cognition</h3>
+                    <p>How large language models mirror human psychological patterns and the implications for future cognitive systems.</p>
+                    <a href="#" class="link-arrow">Read Full Story &rarr;</a>
                 </article>
 
-                <article class="blog-card">
-                    <div>
-                        <span class="date">Feb 15, 2026</span>
-                        <h3>Building Robust Multi-Agent Systems</h3>
-                        <p>A deep dive into why orchestration matters in the era of specialized AI agents. Lessons learned from my recent experiments with autonomous workflows.</p>
-                    </div>
-                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                <!-- Blog Post 2 -->
+                <article class="project-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">Feb 15, 2026</span>
+                    <h3 style="margin-top: 0.5rem;">Multi-Agent Orchestration</h3>
+                    <p>Orchestrating specialized AI agents for complex autonomous workflows. Lessons from recent laboratory experiments.</p>
+                    <a href="#" class="link-arrow">Read Full Story &rarr;</a>
                 </article>
 
-                <article class="blog-card">
-                    <div>
-                        <span class="date">Jan 06, 2026</span>
-                        <h3>The Minimalist Approach to AI Research</h3>
-                        <p>Why stripping back complexity often leads to more profound insights in machine learning. Focus on the first principles of neural computation.</p>
-                    </div>
-                    <a href="#" class="read-more">Read Full Story &rarr;</a>
+                <!-- Blog Post 3 -->
+                <article class="project-card">
+                    <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">Jan 06, 2026</span>
+                    <h3 style="margin-top: 0.5rem;">Minimalist AI Research</h3>
+                    <p>Stripping away complexity to focus on first principles of neural computation and architectural efficiency.</p>
+                    <a href="#" class="link-arrow">Read Full Story &rarr;</a>
                 </article>
             </div>
 
             <!-- Dynamic News Section -->
-            <section class="news-section">
-                <h2 class="animate-on-scroll">Latest in AI</h2>
-                <div id="news-container" class="news-grid animate-on-scroll">
-                    <div class="news-item">
-                        <span class="date" style="font-size: 0.7rem;">Today</span>
-                        <h4 style="margin-top: 0.5rem;">OpenAI Announces Next-Gen Reasoning Engine</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.8;">The new model aims to solve multi-step complex tasks with unprecedented accuracy.</p>
+            <section class="section" style="padding: 6rem 0 0 0; border-top: 1px solid var(--border-subtle); margin-top: 6rem;">
+                <h2 class="section-title animate-on-scroll" style="text-align: left; font-size: 1.8rem; margin-bottom: 2.5rem;">Latest in AI Research</h2>
+                <div id="news-container" class="projects-grid animate-on-scroll" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="project-card" style="padding: 2rem;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Next-Gen Reasoning</h4>
+                        <p style="font-size: 0.9rem;">New models solving multi-step complex tasks with unprecedented accuracy.</p>
+                        <span style="font-size: 0.75rem; color: var(--text-dim);">Source: Research Journal</span>
                     </div>
-                    <div class="news-item">
-                        <span class="date" style="font-size: 0.7rem;">Yesterday</span>
-                        <h4 style="margin-top: 0.5rem;">The Rise of Small Language Models</h4>
-                        <p style="font-size: 0.9rem; opacity: 0.8;">Efficiency becomes the new frontier as SLMs rival their giant predecessors in specific domains.</p>
+                    <div class="project-card" style="padding: 2rem;">
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Small Language Models</h4>
+                        <p style="font-size: 0.9rem;">Efficiency becomes the new frontier as SLMs rival giants in specific domains.</p>
+                        <span style="font-size: 0.75rem; color: var(--text-dim);">Source: AI Trends</span>
                     </div>
                 </div>
             </section>
@@ -171,14 +87,9 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Designed and created by Devashish Pathak. All rights reserved.</p>
+            <p>&copy; 2026 Devashish Pathak. Curating the future.</p>
         </div>
     </footer>
-
-    <!-- Dragon Background (Subtle) -->
-    <div class="dragon-container">
-        <!-- Re-added subtle dragon container if JS depends on it, but styled naturally -->
-    </div>
 
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>

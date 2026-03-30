@@ -4,94 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Devashish Pathak</title>
+    <title>Visual Archive | Devashish Pathak</title>
     <meta name="description" content="A curated collection of observations, architecture, and digital art.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        .gallery-header {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            background: #fff;
-        }
-
-        .gallery-grid {
-            columns: 3 300px;
-            column-gap: 1.5rem;
-            width: 100%;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            background: #f0f4ff;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            color: white;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay h4 {
-            color: white;
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .gallery-overlay p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                columns: 2 200px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery-grid {
-                columns: 1;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
+    <!-- Animated Mesh Background -->
+    <div class="mesh-bg">
+        <div class="mesh-circle circle-1"></div>
+        <div class="mesh-circle circle-2"></div>
+        <div class="mesh-circle circle-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar fade-in">
+    <nav class="navbar scrolled">
         <div class="container">
-            <a href="index.html" class="logo">DevPathak.</a>
+            <a href="index.html" class="logo">DEVASHISH.</a>
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Work</a></li>
@@ -101,14 +31,14 @@
         </div>
     </nav>
 
-    <header class="gallery-header">
-        <div class="container">
-            <h1 class="hero-title fade-in-up">Visual Observations</h1>
-            <p class="hero-subtitle fade-in-up delay-1">Capturing the geometry, light, and structure of the digital and physical world.</p>
+    <header class="section" style="padding-bottom: 2rem; text-align: center;">
+        <div class="container fade-in-up">
+            <h1 class="hero-title">Visual Archive</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Capturing the geometry, light, and structure of the digital and physical world.</p>
         </div>
     </header>
 
-    <main class="section">
+    <main class="section" style="padding-top: 2rem;">
         <div class="container">
             <div id="gallery-grid" class="gallery-grid animate-on-scroll">
                 
@@ -136,14 +66,14 @@
                     </div>
                 </div>
 
-                <!-- Placeholder for dynamic items -->
+                <!-- Placeholder for dynamic items loaded via JS -->
             </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Designed and created by Devashish Pathak. All rights reserved.</p>
+            <p>&copy; 2026 Devashish Pathak. Observing the essence.</p>
         </div>
     </footer>
 

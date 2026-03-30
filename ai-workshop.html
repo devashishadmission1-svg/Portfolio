@@ -7,176 +7,84 @@
     <title>AI Workshop | Devashish Pathak</title>
     <meta name="description" content="A portal of AI research, experiments, and intelligent systems.">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        .workshop-header {
-            padding: 8rem 0 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
-            color: white;
-        }
-        
-        .workshop-header h1 {
-            color: white;
-        }
-
-        .workshop-header .hero-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            margin: 1rem auto;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .project-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 51, 102, 0.1);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0, 51, 102, 0.15);
-        }
-
-        .project-banner {
-            height: 200px;
-            background: #f0f4ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .project-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .project-content {
-            padding: 2.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-
-        .project-content p {
-            color: #555;
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .project-meta span {
-            font-size: 0.8rem;
-            background: #eef2ff;
-            color: var(--primary-color);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-        }
-
-        @media (max-width: 500px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
 
+    <!-- Animated Mesh Background -->
+    <div class="mesh-bg">
+        <div class="mesh-circle circle-1"></div>
+        <div class="mesh-circle circle-2"></div>
+        <div class="mesh-circle circle-3"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar fade-in">
+    <nav class="navbar scrolled">
         <div class="container">
-            <a href="index.html" class="logo" style="color: white;">DevPathak.</a>
+            <a href="index.html" class="logo">DEVASHISH.</a>
             <ul class="nav-links">
-                <li><a href="index.html#about" style="color: rgba(255,255,255,0.8);">About</a></li>
-                <li><a href="index.html#projects" style="color: rgba(255,255,255,0.8);">Work</a></li>
-                <li><a href="index.html#contact" style="color: rgba(255,255,255,0.8);">Contact</a></li>
-                <li><a href="index.html#resume" class="btn-res" style="color: white; border-color: white;">Resume</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Work</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html#resume" class="btn-res">Resume</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="workshop-header">
-        <div class="container">
-            <h1 class="hero-title fade-in-up">AI Workshop</h1>
-            <p class="hero-subtitle fade-in-up delay-1">Where research meets implementation. Exploring the boundaries of machine intelligence.</p>
+    <header class="section" style="padding-bottom: 2rem; text-align: center;">
+        <div class="container fade-in-up">
+            <h1 class="hero-title">AI Workshop</h1>
+            <p class="hero-subtitle" style="margin: 0 auto;">Where research meets implementation. Exploring the boundaries of machine intelligence.</p>
         </div>
     </header>
 
-    <main class="section">
+    <main class="section" style="padding-top: 2rem;">
         <div class="container">
             <div class="projects-grid animate-on-scroll">
 
                 <!-- Project: Athena -->
                 <article class="project-card">
-                    <div class="project-banner">
-                        <img src="assets/ai-1.png" alt="Athena Engine">
+                    <div style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-subtle);">
+                        <img src="assets/ai-1.png" alt="Athena Engine" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="project-content">
-                        <h3>Athena</h3>
-                        <div class="project-meta">
-                            <span>Deep RL</span>
-                            <span>Python</span>
-                            <span>Game Theory</span>
-                        </div>
-                        <p>A UCI-compatible 4-player chess engine using Deep Reinforcement Learning. Features a unique 160-square board layout and multi-agent adversarial training.</p>
-                        <a href="project-athena.html" class="link-arrow">Case Study &rarr;</a>
+                    <div class="skills-list" style="margin-bottom: 1.5rem;">
+                        <li>Deep RL</li>
+                        <li>Python</li>
+                        <li>Game Theory</li>
                     </div>
+                    <h3>Athena Engine</h3>
+                    <p>A UCI-compatible 4-player chess engine using Deep Reinforcement Learning. Features a unique 160-square board layout and multi-agent adversarial training.</p>
+                    <a href="project-athena.html" class="link-arrow">Case Study &rarr;</a>
                 </article>
 
                 <!-- Project: AI Therapist -->
                 <article class="project-card">
-                    <div class="project-banner">
-                        <img src="assets/devashish.jpg" alt="AI Therapist" style="filter: grayscale(1) opacity(0.5);">
+                    <div style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-subtle); background: var(--bg-main); display: flex; align-items: center; justify-content: center;">
+                         <img src="assets/devashish.jpg" alt="AI Therapist" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) opacity(0.5);">
                     </div>
-                    <div class="project-content">
-                        <h3>AI Therapist</h3>
-                        <div class="project-meta">
-                            <span>NLP</span>
-                            <span>Web Speech API</span>
-                            <span>Voice UI</span>
-                        </div>
-                        <p>A voice-activated mental health assistant. It uses speech recognition and synthesis to provide an empathetic, conversational therapy experience.</p>
-                        <a href="project-therapist.html" class="link-arrow">Case Study &rarr;</a>
+                    <div class="skills-list" style="margin-bottom: 1.5rem;">
+                        <li>NLP</li>
+                        <li>Web Speech API</li>
+                        <li>Voice UI</li>
                     </div>
+                    <h3>AI Therapist</h3>
+                    <p>A voice-activated mental health assistant. It uses speech recognition and synthesis to provide an empathetic, conversational therapy experience.</p>
+                    <a href="project-therapist.html" class="link-arrow">Case Study &rarr;</a>
                 </article>
 
                 <!-- Project: Cinextma -->
                 <article class="project-card">
-                    <div class="project-banner" style="background: #001f3f;">
-                        <div style="color: white; font-weight: bold; font-size: 2rem;">Cinextma</div>
+                    <div style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--border-subtle); background: linear-gradient(45deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-weight: 800; font-size: 2rem; letter-spacing: -1px;">CINEXTMA</span>
                     </div>
-                    <div class="project-content">
-                        <h3>Cinextma</h3>
-                        <div class="project-meta">
-                            <span>Recommendation</span>
-                            <span>JS</span>
-                            <span>Chatbot</span>
-                        </div>
-                        <p>An intelligent movie recommendation chatbot. It analyzes user mood and keywords to suggest curated films from a diverse global database.</p>
-                        <a href="project-cinextma.html" class="link-arrow">Case Study &rarr;</a>
+                    <div class="skills-list" style="margin-bottom: 1.5rem;">
+                        <li>RecSys</li>
+                        <li>JS</li>
+                        <li>Chatbot</li>
                     </div>
+                    <h3>Cinextma</h3>
+                    <p>An intelligent movie recommendation chatbot. It analyzes user mood and keywords to suggest curated films from a diverse global database.</p>
+                    <a href="project-cinextma.html" class="link-arrow">Case Study &rarr;</a>
                 </article>
 
             </div>
@@ -185,7 +93,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Designed and created by Devashish Pathak. All rights reserved.</p>
+            <p>&copy; 2026 AI Workshop Portal. Reserved for Devashish Pathak.</p>
         </div>
     </footer>
 

@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | Devashish Pathak</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body >
+<body>
 
-    <div class="dragon-container">
-        <svg id="dragon-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
-            <g id="dragon-screen"></g>
-        </svg>
+    <!-- Animated Mesh Background -->
+    <div class="mesh-bg">
+        <div class="mesh-circle circle-1"></div>
+        <div class="mesh-circle circle-2"></div>
+        <div class="mesh-circle circle-3"></div>
     </div>
 
     <!-- Premium Nav -->
-    <nav class="navbar">
+    <nav class="navbar scrolled">
         <div class="container">
             <a href="index.html" class="logo">PORT. <span class="highlight">ADMIN</span></a>
             <ul class="nav-links">
@@ -29,64 +29,76 @@
     </nav>
 
     <section class="section">
-        <div class="container dashboard-container fade-in-up">
-            
-            <div class="dashboard-header">
-                <h2>Control Center</h2>
-                <p style="opacity: 0.6; margin-top: 0.5rem;">Welcome back, Devashish. Manage your digital garden and portfolio assets here.</p>
-            </div>
-
-            <!-- Stats Overview -->
-            <div class="stats-overview">
-                <div class="stat-card">
-                    <h4>Total Posts</h4>
-                    <div class="value" id="count-blog">0</div>
+        <div class="container">
+            <div class="dashboard-container fade-in-up">
+                
+                <div class="dashboard-header">
+                    <h2 class="section-title">Control Center</h2>
+                    <p style="opacity: 0.6; margin-top: -2rem; text-align: center; margin-bottom: 3rem;">
+                        Manage your digital garden and portfolio assets with a premium interface.
+                    </p>
                 </div>
-                <div class="stat-card">
-                    <h4>Gallery Assets</h4>
-                    <div class="value" id="count-gallery">0</div>
-                </div>
-                <div class="stat-card">
-                    <h4>Last Update</h4>
-                    <div class="value" style="font-size: 1.1rem; opacity: 0.8;" id="last-update">Just now</div>
-                </div>
-            </div>
 
-            <div class="dashboard-tabs">
-                <button class="tab-btn active" onclick="switchTab('blog')">Post Content</button>
-                <button class="tab-btn" onclick="switchTab('gallery')">Media Library</button>
-            </div>
-
-            <!-- Blog Tab -->
-            <div id="tab-blog" class="tab-content active">
-                <form id="blog-form">
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
-                        <input type="text" id="blog-title" class="minimal-input" placeholder="Article Title" required>
-                        <textarea id="blog-content" class="minimal-textarea" rows="12" placeholder="Start writing your AI insights..."
-                            required></textarea>
+                <!-- Stats Overview -->
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <h4>Total Posts</h4>
+                        <div class="value" id="count-blog">0</div>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;">Publish to Garden</button>
-                </form>
-            </div>
-
-            <!-- Gallery Tab -->
-            <div id="tab-gallery" class="tab-content">
-                <form id="gallery-form">
-                    <div style="background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 15px; border: 1px dashed rgba(255,255,255,0.1); text-align: center; margin-bottom: 2rem;">
-                        <label for="img-file" style="cursor: pointer;">
-                            <div style="font-size: 2rem; margin-bottom: 1rem;">📁</div>
-                            <span style="opacity: 0.7;">Click to upload (Max 500KB)</span>
-                            <input type="file" id="img-file" class="minimal-input" accept="image/*" required style="display: none;">
-                        </label>
-                        <div id="file-name" style="margin-top: 1rem; font-size: 0.9rem; color: var(--primary-color);"></div>
+                    <div class="stat-card">
+                        <h4>Gallery Assets</h4>
+                        <div class="value" id="count-gallery">0</div>
                     </div>
-                    <input type="text" id="img-caption" class="minimal-input" placeholder="Add a descriptive caption">
-                    <button type="submit" class="btn btn-primary">Archive to Gallery</button>
-                </form>
-            </div>
+                    <div class="stat-card">
+                        <h4>Last Update</h4>
+                        <div class="value" style="font-size: 1.1rem; opacity: 0.8;" id="last-update">Just now</div>
+                    </div>
+                </div>
 
+                <div class="dashboard-tabs" style="display: flex; justify-content: center; margin-bottom: 1rem; border-bottom: 1px solid var(--border-subtle);">
+                    <button class="tab-btn active" onclick="switchTab('blog')">Post Content</button>
+                    <button class="tab-btn" onclick="switchTab('gallery')">Media Library</button>
+                </div>
+
+                <!-- Blog Tab -->
+                <div id="tab-blog" class="tab-content active">
+                    <form id="blog-form">
+                        <div style="display: grid; grid-template-columns: 1fr; gap: 1rem;">
+                            <input type="text" id="blog-title" class="minimal-input" placeholder="Article Title" required>
+                            <textarea id="blog-content" class="minimal-textarea" rows="12" placeholder="Start writing your AI insights..."
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Publish to Garden</button>
+                    </form>
+                </div>
+
+                <!-- Gallery Tab -->
+                <div id="tab-gallery" class="tab-content">
+                    <form id="gallery-form">
+                        <div style="background: rgba(255,255,255,0.02); padding: 4rem; border-radius: 20px; border: 2px dashed var(--border-subtle); text-align: center; margin-bottom: 2rem; transition: border-color 0.3s;"
+                             onmouseover="this.style.borderColor='var(--primary)'" 
+                             onmouseout="this.style.borderColor='var(--border-subtle)'">
+                            <label for="img-file" style="cursor: pointer;">
+                                <div style="font-size: 3rem; margin-bottom: 1rem;">📁</div>
+                                <span style="opacity: 0.7; font-weight: 600;">Click to upload (Max 500KB)</span>
+                                <input type="file" id="img-file" class="minimal-input" accept="image/*" required style="display: none;">
+                            </label>
+                            <div id="file-name" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--primary); font-weight: 700;"></div>
+                        </div>
+                        <input type="text" id="img-caption" class="minimal-input" placeholder="Add a descriptive caption">
+                        <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%;">Archive to Gallery</button>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Admin Portal. Reserved for Devashish Pathak.</p>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>
