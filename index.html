@@ -18,6 +18,11 @@
 
 <body>
 
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 4px; z-index: 2000; background: transparent;">
+        <div id="scroll-progress-bar" style="width: 0%; height: 100%; background: var(--primary); box-shadow: 0 0 10px var(--primary-glow); transition: width 0.1s ease-out;"></div>
+    </div>
+
     <!-- Animated Mesh Background -->
     <div class="mesh-bg">
         <div class="mesh-circle circle-1"></div>
@@ -106,6 +111,15 @@
                     <h3>AI Workshop</h3>
                     <p>A laboratory of neural network experiments, NLP projects, and computer vision research implementations.</p>
                     <a href="ai-workshop.html" class="link-arrow">Explore Lab &rarr;</a>
+                </article>
+
+                <!-- GitHub Integration Card (Enhanced Addition) -->
+                <article id="github-stats-card" class="project-card animate-on-scroll" style="display: none; border: 1px solid var(--primary-glow); background: rgba(125, 211, 252, 0.08);">
+                    <h3>GitHub Activity</h3>
+                    <div id="gh-stats-content">
+                        <p>Loading real-time contributions...</p>
+                    </div>
+                    <a href="https://github.com/devashishadmission1-svg" target="_blank" class="link-arrow">Follow @devashishadmission1-svg &rarr;</a>
                 </article>
             </div>
         </div>

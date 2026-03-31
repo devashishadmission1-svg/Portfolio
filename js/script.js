@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollToTop();
     initStickyNavbar();
     initFormValidation();
+    initScrollProgress();
+    initScrollSpy();
+    initCopyEmail();
 
     // --- Mobile Menu Toggle ---
     function initMobileMenu() {
@@ -46,7 +49,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- themeToggleBtn removed ---
+    // --- Scroll Progress Bar ---
+    function initScrollProgress() {
+        const progressBar = document.getElementById('scroll-progress-bar');
+        if (!progressBar) return;
+
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            progressBar.style.width = scrolled + '%';
+        }, { passive: true });
+    }
+
+    // --- ScrollSpy (Active Navigation Highlighting) ---
+    function initScrollSpy() {
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active-link');
+                }
+            });
+        }, { passive: true });
+    }
+
+    // --- Copy Email Tooltip ---
+    function initCopyEmail() {
+        const emailLinks = document.querySelectorAll('.email-link');
+        emailLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = link.textContent.trim();
+                navigator.clipboard.writeText(email).then(() => {
+                    const originalText = link.textContent;
+                    link.textContent = 'Email Copied!';
+                    link.style.color = 'var(--accent)';
+                    setTimeout(() => {
+                        link.textContent = originalText;
+                        link.style.color = '';
+                    }, 2000);
+                });
+            });
+            // Add a visual hint (tooltip concept)
+            link.title = 'Click to copy email address';
+        });
+    }
 
     // --- Scroll to Top ---
     function initScrollToTop() {
