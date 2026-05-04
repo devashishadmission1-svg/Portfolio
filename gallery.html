@@ -84,44 +84,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>
-    <script>
-        async function loadGallery() {
-            try {
-                const response = await fetch('http://127.0.0.1:5000/get-gallery');
-                const images = await response.json();
-                const grid = document.getElementById('gallery-grid');
-                
-                if (images.length > 0) {
-                    // Clear existing if we have new items
-                    // grid.innerHTML = ''; // Keep placeholders or clear them? User might want both.
-                    // Let's prepend new ones.
-                    images.reverse().forEach(img => {
-                        const item = document.createElement('div');
-                        item.className = 'gallery-item';
-                        item.innerHTML = `
-                            <img src="${img.url}" alt="${img.caption}">
-                            <div class="gallery-overlay">
-                                <h4>Uploaded Photo</h4>
-                                <p>${img.caption}</p>
-                            </div>
-                        `;
-                        grid.insertBefore(item, grid.firstChild);
-                    });
-                }
-            } catch (err) {
-                console.error("Could not load gallery from server", err);
-            }
-        }
-        loadGallery();
-
-        // Scroll Progress
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress-bar").style.width = scrolled + "%";
-        };
-    </script>
 </body>
 
 </html>
