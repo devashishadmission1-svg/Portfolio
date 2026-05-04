@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Dashboard & Admin Portal Styles
+   ========================================================================== */
+
+.minimal-input, .minimal-textarea {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-md);
+    background: var(--bg-secondary);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: var(--transition-smooth);
+    outline: none;
+}
+
+.minimal-input:focus, .minimal-textarea:focus {
+    border-color: var(--saffron);
+    background: var(--bg-primary);
+    box-shadow: 0 0 0 4px rgba(255, 153, 51, 0.1);
+}
+
+.dashboard-container {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+}
+
+.stats-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    text-align: center;
+    border: 1px solid var(--card-border);
+}
+
+.stat-card h4 {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--saffron);
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.tab-btn.active {
+    color: var(--saffron);
+    border-bottom-color: var(--saffron);
+}
+
+.tab-content {
+    display: none;
+    padding-top: 2rem;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.mesh-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, #fff 0%, #fffaf5 100%);
+}
+
+.mesh-circle {
+    position: absolute;
+    filter: blur(100px);
+    opacity: 0.4;
+    border-radius: 50%;
+    animation: meshFlow 20s infinite alternate;
+}
+
+.circle-1 { top: -10%; left: -10%; width: 500px; height: 500px; background: var(--saffron); }
+.circle-2 { bottom: -10%; right: -10%; width: 600px; height: 600px; background: var(--saffron-dark); animation-delay: -5s; }
+.circle-3 { top: 30%; left: 50%; width: 400px; height: 400px; background: var(--saffron-light); animation-delay: -10s; }
+
+@keyframes meshFlow {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 100px) scale(1.2); }
+}
