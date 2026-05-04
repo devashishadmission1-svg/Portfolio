@@ -8,27 +8,39 @@ window.login = async function() {
     const errorMsg = document.getElementById('error-msg');
     const password = passwordInput.value.trim();
 
-    // Simple password check for the portfolio admin
-    // Note: In a real app, this would be a backend request.
-    const CORRECT_PASSWORD = 'tylerisreal'; 
+    try {
+        const response = await fetch('http://127.0.0.1:5000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ password: password })
+        });
 
-    if (password === CORRECT_PASSWORD) {
-        localStorage.setItem('isAdmin', 'true');
-        // Smooth transition before redirect
-        document.querySelector('.login-container').style.opacity = '0';
-        setTimeout(() => {
-            window.location.href = 'dashboard.html';
-        }, 500);
-    } else {
+        const result = await response.json();
+
+        if (result.success) {
+            localStorage.setItem('isAdmin', 'true');
+            // Smooth transition before redirect
+            const card = document.querySelector('.project-card');
+            if (card) card.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = 'dashboard.html';
+            }, 500);
+        } else {
+            throw new Error(result.message);
+        }
+    } catch (error) {
         errorMsg.style.opacity = '1';
         passwordInput.value = '';
-        passwordInput.style.borderColor = 'var(--primary-color)';
         
         // Shake animation
-        const container = document.querySelector('.login-container');
-        container.style.animation = 'none';
-        void container.offsetWidth; // Trigger reflow
-        container.style.animation = 'shake 0.5s ease-in-out';
+        const container = document.querySelector('.project-card');
+        if (container) {
+            container.style.animation = 'none';
+            void container.offsetWidth; // Trigger reflow
+            container.style.animation = 'shake 0.5s ease-in-out';
+        }
         
         setTimeout(() => {
             errorMsg.style.opacity = '0';

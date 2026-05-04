@@ -93,6 +93,34 @@
 
     <script src="js/script.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        async function loadBlogs() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/get-blogs');
+                const blogs = await response.json();
+                const blogList = document.getElementById('blog-list');
+                
+                if (blogs.length > 0) {
+                    // Clear hardcoded content if we have dynamic content
+                    blogList.innerHTML = '';
+                    blogs.reverse().forEach(post => {
+                        const article = document.createElement('article');
+                        article.className = 'project-card';
+                        article.innerHTML = `
+                            <span style="font-size: 0.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px;">${post.date}</span>
+                            <h3 style="margin-top: 0.5rem;">${post.title}</h3>
+                            <p>${post.content.substring(0, 150)}${post.content.length > 150 ? '...' : ''}</p>
+                            <a href="#" class="link-arrow">Read Full Story &rarr;</a>
+                        `;
+                        blogList.appendChild(article);
+                    });
+                }
+            } catch (err) {
+                console.error("Could not load blogs from server", err);
+            }
+        }
+        loadBlogs();
+    </script>
 </body>
 
 </html>

@@ -108,17 +108,23 @@
             window.location.href = 'login.html';
         }
 
+        const API_BASE = 'http://127.0.0.1:5000';
+
         function logout() {
             localStorage.removeItem('isAdmin');
             window.location.href = 'index.html';
         }
 
         // Stats Logic
-        function updateStats() {
-            const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-            const images = JSON.parse(localStorage.getItem('galleryImages')) || [];
-            document.getElementById('count-blog').textContent = posts.length;
-            document.getElementById('count-gallery').textContent = images.length;
+        async function updateStats() {
+            try {
+                const response = await fetch(`${API_BASE}/get-stats`);
+                const data = await response.json();
+                document.getElementById('count-blog').textContent = data.blog_count;
+                document.getElementById('count-gallery').textContent = data.gallery_count;
+            } catch (err) {
+                console.error("Failed to fetch stats", err);
+            }
         }
         updateStats();
 
@@ -140,50 +146,58 @@
         });
 
         // BLOG POST
-        document.getElementById('blog-form').addEventListener('submit', (e) => {
+        document.getElementById('blog-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const title = document.getElementById('blog-title').value;
             const content = document.getElementById('blog-content').value;
-            const date = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            const id = Date.now().toString();
 
-            const newPost = { id, title, content, date };
-            const posts = JSON.parse(localStorage.getItem('blogPosts')) || [];
-            posts.push(newPost);
-            localStorage.setItem('blogPosts', JSON.stringify(posts));
-
-            alert('Article successfully published!');
-            e.target.reset();
-            updateStats();
+            try {
+                const response = await fetch(`${API_BASE}/upload-blog`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ title, content })
+                });
+                const result = await response.json();
+                if (result.success) {
+                    alert('Article successfully published!');
+                    e.target.reset();
+                    updateStats();
+                } else {
+                    alert('Error: ' + result.message);
+                }
+            } catch (err) {
+                alert('Connection to server failed.');
+            }
         });
 
         // GALLERY IMAGE
-        document.getElementById('gallery-form').addEventListener('submit', (e) => {
+        document.getElementById('gallery-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const fileInput = document.getElementById('img-file');
             const caption = document.getElementById('img-caption').value;
             const file = fileInput.files[0];
 
             if (file) {
-                if (file.size > 500 * 1024) {
-                    alert('File exceeds 500KB limit.');
-                    return;
-                }
-
                 const reader = new FileReader();
-                reader.onload = function (event) {
+                reader.onload = async function (event) {
                     const base64String = event.target.result;
-                    const newImg = { url: base64String, caption };
-                    const images = JSON.parse(localStorage.getItem('galleryImages')) || [];
-                    images.push(newImg);
                     try {
-                        localStorage.setItem('galleryImages', JSON.stringify(images));
-                        alert('Visual asset successfully archived!');
-                        e.target.reset();
-                        document.getElementById('file-name').textContent = "";
-                        updateStats();
+                        const response = await fetch(`${API_BASE}/upload-photo`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ image: base64String, caption: caption })
+                        });
+                        const result = await response.json();
+                        if (result.success) {
+                            alert('Visual asset successfully archived!');
+                            e.target.reset();
+                            document.getElementById('file-name').textContent = "";
+                            updateStats();
+                        } else {
+                            alert('Error: ' + result.message);
+                        }
                     } catch (err) {
-                        alert('Storage quota exceeded.');
+                        alert('Connection to server failed.');
                     }
                 };
                 reader.readAsDataURL(file);
